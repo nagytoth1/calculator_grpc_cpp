@@ -1,0 +1,18 @@
+syntax = "proto3";
+
+package calculator;
+
+service CalculatorService{
+  rpc Add(MathOperands) returns (MathResult);
+  rpc Sub(MathOperands) returns (MathResult);
+  rpc Mul(MathOperands) returns (MathResult);
+  rpc Div(MathOperands) returns (MathResult);
+}
+message MathOperands{
+  int32 operand1 = 1;
+  int32 operand2 = 2;
+}
+
+message MathResult{
+  int32 result = 1;
+}
