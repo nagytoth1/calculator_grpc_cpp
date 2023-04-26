@@ -2,12 +2,12 @@
 A gRPC Linuxon készítve
 # Protocol Buffers feltelepítése
 
-A gRPC alapértelmezés szerint protokollpuffereket használ, a protoc fordítóra lesz szükséged a szerver és kliens kódok létrehozásához.
+A gRPC alapértelmezés szerint Protocol Buffert használ, a protoc fordítóra lesz szükséged a szerver és kliens kódok létrehozásához.
 Ezt nem muszáj lebuildelni, az alábbi linken le is tölthetjük a protoc 22.3 futtatható változatát. 
 A protoc bin mappájának - ahol a futtatható parancs található - elérési útvonalát érdemes a PATH környezeti változóhoz rendelni.
 [Protoc 22.3](https://github.com/protocolbuffers/protobuf/releases/download/v22.3/protoc-22.3-win64.zip)
 
-Válasszon egy könyvtárat a helyileg telepített dependencyknek. 
+Válasszunk egy könyvtárat a helyileg telepített dependencyknek. 
 A MY_INSTALL_DIR környezeti változó tartalmazza a Protocol Buffers elérési útvonalát.
 Ez a példában az aktuális user home könyvtárában (ezt a /home/user1 vagy $HOME vagy ~ formájában is jelezhetjük) 
 Érdemes kitenni egy külön változóba, mert többször fogunk hivatkozni rá. Ez a változó csak az aktuális shell kontextusában kerül lefoglalásra.
@@ -34,7 +34,7 @@ $ sh cmake-linux.sh -- --skip-license --prefix=$MY_INSTALL_DIR
 $ rm cmake-linux.sh
 ```
 
-Telepítse a gRPC elkészítéséhez szükséges alapvető eszközöket:
+Telepítsük a gRPC elkészítéséhez szükséges alapvető eszközöket:
 
 ```
 $ sudo apt install -y build-essential autoconf libtool pkg-config
@@ -46,10 +46,8 @@ Klónozzuk a gRPC repositoryt annak almoduljaival együtt:
 $ git clone --recurse-submodules -b v1.54.0 --depth 1 --shallow-submodules https://github.com/grpc/grpc
 ```
 
-A gRPC és a Protocol Buffers összeállítása és telepítése
-Bár nem kötelező, de a gRPC alkalmazások általában kihasználják a Protocol Buffers-t a szolgáltatásdefiníciókhoz és az adatok szerializációjához, a példakód pedig a proto3-at használja.
-
-A következő parancsok a gRPC-t és a Protocol Buffers-t építik és lokálisan telepítik:
+Bár nem kötelező, de a gRPC-alkalmazások általában a Protocol Buffers-t használják a szolgáltatásdefiníciókhoz és az adatok szerializációjához.
+A következő parancsok a gRPC-t és a Protocol Buffers-t építik fel, és telepítik lokálisan (csak a bejelentkezett user részére):
 
 ```
 $ cd grpc
